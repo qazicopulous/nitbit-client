@@ -3,6 +3,8 @@ import React from 'react';
 import { IconProps } from '../Icon/Icon';
 import { timeAgo } from '@/utils/time';
 import Image from 'next/image';
+import { GetStaticProps } from 'next';
+import Link from 'next/link';
 
 
 let postNameLabel: string;
@@ -24,7 +26,7 @@ export class Section {
     this.properties = properties;
   }
 
-  generateComponent(): React.ReactNode {
+  generateComponent() {
     // console.log(this.tag)
     const buildChildren = (
       itemCallback?: (
@@ -119,67 +121,106 @@ export class Section {
       // case Tag.RevealContent:
       case Tag.InlineImage:
         return (
-          <span className={`${styles['inline-image']} ${this.properties.large ? styles['large'] : ''}`}>
-          &nbsp;
-            <Image
-              src={`/assets/media/posts/${postNameLabel}/${this.properties.name}`}
-              alt={this.properties.alt}
-              width={300}
-              height={300}
-            ></Image>
-            <Image
-              className={styles.enlarged}
-              src={`/assets/media/posts/${postNameLabel}/${this.properties.name}`}
-              alt={this.properties.alt}
-              width={300}
-              height={300}
-            ></Image>
-            {buildChildren()}
-          </span>
+          <>
+            &nbsp;
+            <span className={`${styles['inline-image']} ${this.properties.large ? styles['large'] : ''}`}>
+              <Image
+                src={`/assets/media/posts/${postNameLabel}/${this.properties.name}`}
+                alt={this.properties.alt}
+                width={300}
+                height={300}
+              ></Image>
+              <Image
+                className={styles.enlarged}
+                src={`/assets/media/posts/${postNameLabel}/${this.properties.name}`}
+                alt={this.properties.alt}
+                width={300}
+                height={300}
+              ></Image>
+              {buildChildren()}
+            </span>
+          </>
         );
       case Tag.Image:
         return (
-          <Image
-            className={styles.image}
-            src={`/assets/media/posts/${postNameLabel}/${this.properties.name}`}
-            alt={this.properties.alt}
-            width={300}
-            height={300}
-            style={{ maxWidth: this.properties.width, height: 'auto' }}
-          >
-          </Image>
+          <div className={styles.image}>
+            <Image
+              src={`/assets/media/posts/${postNameLabel}/${this.properties.name}`}
+              alt={this.properties.caption ? this.properties.caption : this.properties.alt}
+              style={{ maxWidth: this.properties.width + "px", height: 'auto', transform: "translate3d(0, 0, 0)" }}
+              placeholder="blur"
+              blurDataURL={`/assets/media/posts/${postNameLabel}/${this.properties.name}`}
+              width={this.properties.width}
+              height={480}
+              loading="lazy"
+            />
+            <div className={styles.caption}>
+              {this.properties.caption}
+              {this.properties.source &&
+                <>
+                  &nbsp;
+                  <Link className={styles.hyperlink} href={this.properties.source}>
+                    Source.
+                  </Link>
+                </>
+              }
+            </div>
+          </div>
 
         )
       case Tag.Video:
         return (
-          <div>
-            <video className={styles.video} controls>
+          <div className={styles.video}>
+            <video controls>
               <source src={`/assets/media/posts/${postNameLabel}/${this.properties.name}`}/>
               Your browser cannot show this video.
             </video>
+            <div className={styles.caption}>
+              {this.properties.caption}
+              {this.properties.source &&
+                <>
+                  &nbsp;
+                  <Link className={styles.hyperlink} href={this.properties.source}>
+                    Source.
+                  </Link>
+                </>
+              }
+            </div>
           </div>
         )
       case Tag.VideoExt:
         return (
-          <iframe
-            className={styles['video-ext']}
-            width="300"
-            height="300"
-            src={`https://www.youtube.com/embed/${this.properties.id}`}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            title="Embedded youtube"
-          />
-        )
+          <div className={styles['video-ext']}>
+            <iframe
+              width="300"
+              height="300"
+              src={`https://www.youtube.com/embed/${this.properties.id}`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title="Embedded youtube"
+            />
+            <div className={styles.caption}>
+              {this.properties.caption}
+              {this.properties.source &&
+                <>
+                  &nbsp;
+                  <Link className={styles.hyperlink} href={this.properties.source}>
+                    Source.
+                  </Link>
+                </>
+              }
+            </div>
+          </div>
+          )
       case Tag.Distinct:
         return <span className={styles.distinct}>{buildChildren()}</span>
-      case Tag.Hyperlink:
+      case Tag.Link:
         return (
           <>
             &nbsp;
-            <a className={styles.hyperlink} href={this.properties.urls[0].href}>
+            <Link className={styles.hyperlink} href={this.properties.urls[0].href}>
               {this.properties.urls[0].alt}{buildChildren()}
-            </a>
+            </Link>
           </>
         );
       case Tag.Code:
@@ -235,7 +276,7 @@ enum Tag {
   Video,
   VideoExt,
   Distinct,
-  Hyperlink,
+  Link,
   Code,
   CodeWide,
   InlineCode,

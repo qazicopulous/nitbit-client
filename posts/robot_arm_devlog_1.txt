@@ -21,10 +21,10 @@
   Inverse Kinematics
 §P
   So, what is inverse kinematics? Why is it even called kinematics, does it have anything to do with physics? According to Wikipedia,
-  §Hyperlink
+  §Link
     * url: , forward kinematics, https://en.wikipedia.org/wiki/Forward_kinematics
    refers to *"the use of the kinematic equations of a robot to compute the position of the end-effector from specified values for the joint parameters"*. End-effector means end of the arm. So, given the position (and rotation) of the end of the arm,
-  §Hyperlink
+  §Link
     * url: , inverse kinematics, https://en.wikipedia.org/wiki/Inverse_kinematics
    computes the rotation parameters of the joints to reach that position.
 
@@ -41,39 +41,38 @@
 §Image
   * name: axes.png
   * alt: axes
-  * width: 500px
-Coordinate systems. Left: Three.js, right: others.
-§Hyperlink
-  * url: , Source, https://stackoverflow.com/questions/8272297/three-js-rotate-projection-so-that-the-y-axis-becomes-the-z-axis
+  * width: 500
+  * caption: Coordinate systems. Left: Three.js, right: others.
+  * source: https://stackoverflow.com/questions/8272297/three-js-rotate-projection-so-that-the-y-axis-becomes-the-z-axis
 
 §P
   Offsets and rotations are relative to the previous joint and rotations are intrinsic meaning each joint has its own set of rotation axes which change when the joint rotates. That also means the sequence of intrinsic rotations is important. Read more on
-  §Hyperlink
+  §Link
     * url: , Euler angles, https://en.wikipedia.org/wiki/Euler_angles
   . The axes aren't that important and depend on your implementation. You can play with D-H parameters
-  §Hyperlink
+  §Link
     * url: , here (1), https://vis-ro.web.app/robotics/dh-model
    or
-  §Hyperlink
+  §Link
     * url: , here (2), https://tools.glowbuzzer.com/kinviz
   .
 §Video
   * name: 1.arm.mp4
-Static arm with D-H parameters.
+  * caption: Static arm with D-H parameters.
 §P
   IK can be done analytically (by solving) vs numerically (by approximation) vs heuristically (e.g. FABRIK). For my robot, I used a numerical approach called Jacobian inverse technique (more below and on the IK Wikipedia page) and followed
-  §Hyperlink
+  §Link
     * url: , this, https://github.com/dbddqy/visual_kinematics
    Python implementation.
 §Video
   * name: 2.ik.mp4
-First implementation.
+  * caption: First implementation.
 
 §P
   In the first implementation, the arm follows the camera's position mirrored along the x and z axis. I was creating a new arm instance for every new position, leading to erratic movements, which I then fixed.
 §Video
   * name: 3.ik-smooth.mp4
-Smoother motion.
+  * caption: Smoother motion.
 
 §SubHeader
   Math
@@ -89,7 +88,7 @@ Smoother motion.
   Each joint should only rotate an angle ^θ^ about its up/y-axis, like a regular motor which can only rotate about one axis.
 §Video
   * name: 4.different-axes.mp4
-Rotation axes.
+  * caption: Rotation axes.
 §P
   That being said, there is something wrong with my implementation. Here, since the first link is inclined upwards, the second link should be also be inclined instead of being completely horizontal. I'll fix it eventually.
 
@@ -99,18 +98,18 @@ Rotation axes.
   Here I additionally decreased the step-size to make it extra smooth.
 §Video
   * name: 5.ik-smoother.mp4
-Showing in-between frames (after n steps).
+  * caption: Showing in-between frames (after n steps).
 §P
   Linear transformations do the most mind-blowing things.
 §Video
   * name: 6.steps.mp4
-Showing in-between in-between frames (after each step).
+  * caption: Showing in-between in-between frames (after each step).
 
 §SubHeader
   Problems
 §P
   One problem I encountered was the browser freezing at certain positions. When I ran the same position through the Rust code it worked just fine and when I decreased the max iterations to 20 it ran fine in the browser. I thought it was a memory limitation in the browser at high iterations, but that didn't make sense. I found that sometimes converting a
-  §Hyperlink
+  §Link
     * url: , rotation matrix, https://en.wikipedia.org/wiki/Rotation_matrix
    to an angle returned NaN due to floating point error that made the input to acos more than 1. For some reason that caused an infinite loop somewhere in the nalgebra library.
 

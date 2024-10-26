@@ -6,17 +6,10 @@
 * url: github.svg, repo, https://github.com/n3cubed/nitbit
 * summary: Personal website to showcase stuff.
 * author: me
-*
 
 §P
   w e b s i te
 §P
   made by me
-§P
-  §Distinct
-    wow
-    §InlineImage
-      * name: minecraft_sample.png
-    wow
 §P
   More updates coming

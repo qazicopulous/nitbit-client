@@ -17,7 +17,7 @@ const Post: React.FC<{ post: React.ReactNode, repoLink: string }> = ({ post, rep
 		if (repoLink) {
 			setRepoLink(repoLink);
 			setUpdateState({});
-			console.log(repoLink)
+			// console.log(repoLink)
 		} else {
 			setRepoLink("https://github.com/n3cubed");
 		}

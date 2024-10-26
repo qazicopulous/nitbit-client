@@ -15,9 +15,9 @@
 
 §P
   Code snippets using
-  §Hyperlink
+  §Link
     * url: , highlight.js, https://highlightjs.org/
-  . The hardest part was figuring out which theme to use.
+  . Which theme should I use?
 
 §CodeWide
   * lang: javascript
@@ -35,22 +35,21 @@
   Inline text decoration: **bold**, *italics*, `code`, ^distinct^. Since I made the parser myself I can add as many ~weird~ things as I want. And inline images because sometimes we just can't
   §InlineImage
     * name: ok.png
+    * alt: ok
    the right words.
 §SubHeader
   Images
-§P
-  Cursed image 🐄
-  §Image
-    * name: cow.png
-    * alt: cow
-    * width: 300px
 
-§P
-  Teeny Tennis 🥜🎾
-  §Image
-    * name: teeny-tennis.jpg
-    * alt: teeny tennis
-    * width: 400px
+
+§Image
+  * name: cow.png
+  * width: 300
+  * caption: 🐄. Source: FLUX.1
+
+§Image
+  * name: teeny-tennis.jpg
+  * width: 400
+  * caption: Teeny Tennis 🥜🎾. Source: me
 
 §SubHeader
   Videos 🐛

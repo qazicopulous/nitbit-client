@@ -77,6 +77,21 @@
 	src: url('../public/assets/fonts/IosevkaSS07-Regular.woff2') format('woff2');
 }
 
+@font-face {
+	font-family: 'Iosevka SS07 Web Light';
+	font-display: swap;
+	font-stretch: normal;
+	font-style: normal;
+	src: url('../public/assets/fonts/IosevkaSS07-Light.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Lexend Deca';
+	font-stretch: normal;
+	font-style: normal;
+	src: url('../public/assets/fonts/LexendDeca-Regular.ttf') format('truetype');
+}
+
 
 
 @media only screen and (min-width: 900px) {
@@ -115,7 +130,12 @@
 
    --primary-color:rgb(173, 176, 187);
    --secondary-color:rgb(120, 123, 134);
-   --link: rgb(180, 124, 231);
+   --download-link-background: rgb(159, 90, 216);
+   --link: rgb(153, 124, 231);
+   /* --link: rgb(180, 124, 231); */
+   /* --link-visited: rgb(165, 113, 212); */
+   --link-visited: rgb(170, 138, 77);
+   /* --link-visited: rgb(172, 137, 72); */
    --contrast: rgb(216, 220, 230);
    --high-contrast: rgb(239, 243, 255);
    --very-high-contrast: white;
@@ -124,6 +144,8 @@
    --contrast-dark: rgb(40, 41, 44);
    --high-contrast-dark: black;
    --link-dark: rgb(28, 35, 102);
+   --code-background-dark: rgb(30, 38, 66);
+   /* --code-background-dark: rgb(30, 34, 66); */
 
    --more-line-width:0px;
    --more-line-height:0px;

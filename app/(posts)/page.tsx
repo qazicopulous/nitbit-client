@@ -8,6 +8,7 @@ import Posts from '@/components/Post/Posts';
 import styles from './page.module.css';
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation'
+import Image from 'next/image';
 
 const Home: React.FC = () => {
   const router = useRouter()
@@ -36,7 +37,7 @@ const Home: React.FC = () => {
       <div
         ref={upperHomeRef}
         className={`${isExpandPosts ? styles['expanded'] : ''} ${styles['upper-home'] }`}
-        style={{ marginTop: isExpandPosts ? `${-upperHomeHeight}px` : undefined }}
+        style={{ filter: 'hue-rotate(290deg) sepia(10%) saturate(200%)', marginTop: isExpandPosts ? `${-upperHomeHeight}px` : undefined }}
       >
         <div className={styles['main-buttons']}>
           <MainButton color='#ff8e2b' text='**WIP***' href='/' />
@@ -62,6 +63,15 @@ const Home: React.FC = () => {
           }}
         >
           <Icon name='arrow-up-right-light.svg' alt='expand' width={20}></Icon>
+        </div>
+        <div className='skeleton' style={{ position: 'absolute', bottom: '0', right: '0', overflow:'hidden', zIndex:'-1'}}>
+          <Image
+            style={{height:'auto', width:'370px', position: 'relative', bottom: '-11px', right: '-40px', transform: "rotateZ(-2.5deg)"}}
+            src="/assets/media/skeleton.png"
+            alt="skeleton"
+            width="1000"
+            height="700"
+          ></Image>
         </div>
 
         {/* <div style={{ position: 'relative', paddingRight: '20px' }}>

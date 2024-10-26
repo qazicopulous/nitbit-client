@@ -28,9 +28,11 @@
     width: max-content;
     margin: 0 auto;
   }
-  .image, .video, .video-ext {
+  .code {
+    width: max-content;
     margin: auto;
   }
+
 }
 
 @media only screen and (max-width: 900px) {
@@ -50,12 +52,11 @@
   }
 }
 
-
-
-  .sub-header {
-    text-align: center;
-    font-family: 'Space Grotesk Light';
-  }
+.sub-header {
+  text-align: center;
+  font-family: 'Lexend Deca';
+  font-weight: 300;
+}
 
 .li {
   text-align:left;
@@ -146,6 +147,8 @@
 
 .inline-image {
   position:relative;
+  width: max-content;
+  height: max-content;
 }
 
 .inline-image > img {
@@ -192,19 +195,37 @@
   opacity:1;
 }
 
-.video {
+
+.caption {
+  margin-top:3px;
+  font-size: var(--font-smallish);
+  color: var(--secondary-color)
+}
+
+.image, .video, .video-ext {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.video > video {
+  border-radius: 8px;
   display: block;
+  width: min(500px, 100%);
   border: 2px dashed white;
-  width: min(500px, 100%);
 }
 
-.video-ext {
+.video-ext > iframe {
+  border: 2px dashed white;
+  border-radius: 8px;
   display: block;
   width: min(500px, 100%);
 }
 
-.image {
-  width: min(500px, 100%);
+.image > img {
+  border-radius: 8px;
+  width: min(2000px, 100%);
   /* border: 1px dashed white; */
   display: block;
 }
@@ -224,13 +245,14 @@
   position:relative;
   height:max-content;
   max-width:max-content;
+  text-align:left;
 }
 .code-container.wide {
   max-width: none;
 }
 
 .code {
-  font-family: "Iosevka SS07 Web";
+  font-family: "Iosevka SS07 Web Light";
   font-size:var(--font-default);
   padding:3px;
   border-radius:3px;
@@ -238,6 +260,10 @@
   padding:8px 8px;
   padding-bottom: 5px;
   max-width:100%;
+}
+
+.code > code {
+  font-family: "Iosevka SS07 Web Light";
 }
 
 
@@ -285,12 +311,12 @@
 
 .inline-code {
   user-select: all;
-  font-family: "Iosevka SS07 Web";
-  font-size:var(--font-default);
-  color: var(--dark-background-color);
+  font-family: "Iosevka SS07 Web Light";
+  font-size:var(--font-smallish);
+  color: var(--contrast);
   padding:3px;
   border-radius:3px;
-  background-color: var(--contrast);
+  background-color: var(--code-background-dark);
 }
 
 .note .inline-code {
@@ -373,7 +399,6 @@
 }
 
 .hyperlink {
-  --download-link-background: rgb(159, 90, 216);
   color: var(--link);
   text-decoration: none;
   position:relative;
@@ -382,10 +407,14 @@
   text-decoration: underline 2px transparent;
 }
 
-.hyperlink:hover {
+.hyperlink:hover, .hyperlink:visited:hover {
   text-decoration-color: var(--contrast);
   color: var(--high-contrast);
   text-underline-offset: 3px;
+}
+
+.hyperlink:visited {
+  color: var(--link-visited);
 }
 
 .weird {
