@@ -215,11 +215,12 @@ export class Section {
       case Tag.Distinct:
         return <span className={styles.distinct}>{buildChildren()}</span>
       case Tag.Link:
+        const url = this.properties.urls[0];
         return (
           <>
             &nbsp;
             <Link className={styles.hyperlink} href={this.properties.urls[0].href}>
-              {this.properties.urls[0].alt}{buildChildren()}
+              { url.alt ? url.alt : url.href }{buildChildren()}
             </Link>
           </>
         );
@@ -420,7 +421,12 @@ export function parseRawPost(input: string): Section {
       if (prevContent && typeof prevContent === 'string') {
         line = '\n' + line;
       }
-      let content = parseString(line);
+      let content;
+      if (currentSection.tag !== Tag.Code && currentSection.tag !== Tag.CodeWide) {
+        content = parseString(line);
+      } else {
+        content = line;
+      }
       currentSection.content.push(...content);
       // currentSection.content = currentSection.content.concat(contents)
     }

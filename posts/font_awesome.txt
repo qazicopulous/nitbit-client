@@ -1,0 +1,157 @@
+* title: Free Pro Icons from Font Awesome
+* postName: font_awesome
+* lastUpdated: 26/10/2024
+* category: Notes
+* url: link.svg, Font Awesome, https://fontawesome.com/
+* summary: Getting pro icons from Font Awesome for free. DID SOMEONE SAY FREE?!??!?
+* author: me
+
+§P
+  Ask yourself: would you rather seek vigilantism against profit-driven consumer exploitation... or something, or the more lawful option, deprived by a senseless dependence on Creative Commons and other publicly licensed work to provide you with just palatable options, always chasing a pipe dream of your design ideals? Bro overcooked 💀
+
+§P
+  Before you continue, consider actually free alternatives:
+  §Link
+    * url: , Flaticon, https://www.flaticon.com
+  ,
+  §Link
+    * url: , Iconscout, https://iconscout.com/
+  ,
+  §Link
+    * url: , Octicons, https://primer.style/octicons
+  ,
+  §Link
+    * url: , Codicon, https://microsoft.github.io/vscode-codicons/dist/codicon.html
+  .
+
+§SubHeader
+  Option 1: Use a link
+§Ol
+  §Li
+    Find the pro icon you want from
+    §Link
+      * url: , Font Awesome, https://fontawesome.com/search
+    .
+§Image
+  * name: pan-frying.png
+  * width: 400
+  * alt: pan_frying
+§Ol
+  * start: 2
+  §Li
+    Copy the HTML.
+§Image
+  * name: the_html.png
+  * width: 300
+  * alt: html
+§Ol
+  * start: 3
+  §Li
+    Right click on the large icon, view page source, and find and copy the URL
+    ^https://site-assets.fontawesome.com/releases/vx.y.z/css/all.css^
+  §Li
+    Include this link using the `<link>` tag to use your chosen icon like any other free icon. For example,
+
+§CodeWide
+  <link href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css" rel="stylesheet">
+  <div>frying an egg sunny-side up <i class="fa-regular fa-pan-frying"></i></div>
+
+§SubHeader
+  Option 2: Use a local file
+§P
+  Download the file which your icon is located. Update the version in the url to the latest if necessary. You can change the extension to *ttf* to download the ttf file instead.
+§Ul
+  §Li
+    §Link
+      * url: , , https://site-assets.fontawesome.com/releases/v6.6.0/webfonts/fa-solid-900.woff2
+  §Li
+    §Link
+      * url: , , https://site-assets.fontawesome.com/releases/v6.6.0/webfonts/fa-regular-400.woff2
+  §Li
+    §Link
+      * url: , , https://site-assets.fontawesome.com/releases/v6.6.0/webfonts/fa-light-300.woff2
+  §Li
+    §Link
+      * url: , , https://site-assets.fontawesome.com/releases/v6.6.0/webfonts/fa-thin-100.woff2
+  §Li
+    §Link
+      * url: , , https://site-assets.fontawesome.com/releases/v6.6.0/webfonts/fa-duotone-900.woff2
+  §Li
+    §Link
+      * url: , , https://site-assets.fontawesome.com/releases/v6.6.0/webfonts/fa-brands-400.woff2
+  §Li
+    §Link
+      * url: , , https://site-assets.fontawesome.com/releases/v6.6.0/webfonts/fa-sharp-regular-400.woff2
+  §Li
+    §Link
+      * url: , , https://site-assets.fontawesome.com/releases/v6.6.0/webfonts/fa-sharp-solid-900.woff2
+§P
+  Then use it like a font and type out the icon's unicode prefixed with `&#x`. The unicode for the icon can be copied from Font Awesome. You can also *Copy Glyph* and use that instead.
+§CodeWide
+  <style>
+    @font-face {
+        font-family:"Font Awesome 6 Pro"; /* name it anything */
+        font-style:normal;
+        font-weight:400;
+        font-display:block;
+        src: url(../assets/fa-sharp-regular-400.woff2) format("woff2");
+        /* format is "truetype" for ttf files */
+    }
+  </style>
+§CodeWide
+  <style>
+    .my-icons{
+        font-family: "Font Awesome 6 Pro";
+    }
+  </style>
+  <span class="my-icons">&#x(unicode);</span>
+  <!-- write your icon's unicode in &#x(unicode); -->
+§P
+  Alternatively, do it the same way they do on the actual website.
+§CodeWide
+  <style>
+    .snowflake:before{
+        font-family: "Font Awesome 6 Pro";
+        content:'\f2dc'; /* put the unicode after `\` */
+    }
+  </style>
+  <div><span class="snowflake"></span></div>
+
+§SubHeader
+  Option 3: Download an icon
+§P
+  Backtrack to **Option 2** to download the files, except change the extension to ttf.
+§Ol
+  §Li
+    Open the TTF file with
+    §Link
+      * url: , FontForge, https://fontforge.org/en-US/
+    .
+  §Li
+    In the gallery, under *Encoding* choose *Compact* to remove empty glyphs (icons).
+§Image
+  * name: encoding-compact.png
+  * width: 400
+  * alt: compact
+§Ol
+  * start: 2
+  §Li
+    Under *View* choose *Goto* and input the name of your icon.
+§Image
+  * name: view-goto.png
+  * width: 400
+  * alt: goto
+§Ol
+  * start: 3
+  §Li
+    Double click the icon to open the editor, then under *File* (in the editor) choose *Export* and configure the icon's name and change the format to SVG, then save it to your desired location. There's your SVG. Open it in a browser to see it.
+§Image
+  * name: file-export.png
+  * width: 400
+  * alt: file export
+§Ol
+  * start: 3
+  §Li
+    Use the SVG directly!
+§Code
+  <img src="name.svg" alt="my svg"/>

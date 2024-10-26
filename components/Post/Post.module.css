@@ -25,13 +25,10 @@
   }
   .o-list, .u-list {
     /* width: min(60%, 650px); */
-    width: max-content;
+    width: fit-content;
     margin: 0 auto;
   }
-  .code {
-    width: max-content;
-    margin: auto;
-  }
+
 
 }
 
@@ -51,6 +48,8 @@
     text-align:left;
   }
 }
+
+
 
 .sub-header {
   text-align: center;
@@ -246,7 +245,9 @@
   height:max-content;
   max-width:max-content;
   text-align:left;
+  margin: auto;
 }
+
 .code-container.wide {
   max-width: none;
 }

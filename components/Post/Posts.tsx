@@ -114,7 +114,7 @@ const Posts: React.FC = () => {
   }, []);
 
   function isScrolledToBottom(element: HTMLElement) {
-    return Math.abs(element.scrollHeight - element.scrollTop - element.clientHeight) < 1
+    return Math.abs(element.scrollHeight - element.scrollTop - element.clientHeight) < 3
   }
   function scrollToBottom(element: HTMLElement) {
     element.scrollTop = element.scrollHeight
@@ -187,9 +187,9 @@ const Posts: React.FC = () => {
             <Title>POSTS</Title>
           </div>
           <div
+            className={styles.categories}
             style={{
               position: "relative",
-              right: "0px ",
               display: "flex",
               flexDirection: "row",
               alignItems: "center",

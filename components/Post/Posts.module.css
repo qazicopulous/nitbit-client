@@ -38,6 +38,14 @@
     max-width: 25em;
   }
 }
+@media only screen and (max-width: 540px) {
+  .categories {
+    right: min(calc((540px - 100vw) / 2), 40px);
+  }
+}
+
+
+
 
 .nothing {
   margin-top: 26px;

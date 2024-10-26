@@ -69,8 +69,8 @@ const Home: React.FC = () => {
             style={{height:'auto', width:'370px', position: 'relative', bottom: '-11px', right: '-40px', transform: "rotateZ(-2.5deg)"}}
             src="/assets/media/skeleton.png"
             alt="skeleton"
-            width="1000"
-            height="700"
+            width="300"
+            height="300"
           ></Image>
         </div>
 
