@@ -49,6 +49,10 @@
   }
 }
 
+.o-list, .u-list {
+  line-break: normal;
+}
+
 
 
 .sub-header {
