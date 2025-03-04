@@ -3,9 +3,9 @@
 * lastUpdated: 3/10/2024
 * category: Devlog
 * url: link.svg, nitbit.dev, https://nitbit.dev
-* url: github.svg, repo, https://github.com/n3cubed/nitbit
+* url: github.svg, repo, https://github.com/qazicopulous/nitbit
 * summary: Features for posts and other updates.
-* author: me
+* author: at.svg, Q∀Z, https://hub.nitbit.dev/@qaz
 
 §P
   This is the first devlog of many. I mostly just made changes for posts and other general things. Here are the main things I added (and some memes).

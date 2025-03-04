@@ -3,6 +3,7 @@
   flex-direction: row;
   text-decoration:none;
   width:max-content;
+  text-decoration: none !important;
 }
 
 .main-button-large {
@@ -37,4 +38,16 @@
 .main-button:hover > .main-button-large {
   letter-spacing: 3px;
   padding: 7px 20px;
+}
+
+.dashboard > div {
+  background-color: var(--dashboard-button-color);
+}
+
+.posts > div{
+  background-color: var(--posts-button-color);
+}
+
+.wip > div{
+  background-color: var(--wip-button-color);
 }

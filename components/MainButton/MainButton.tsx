@@ -1,20 +1,44 @@
 import styles from './MainButton.module.css'
 import Link from 'next/link'
 
+interface MainButtonProps {
+  type: string
+}
+
 interface ButtonProps {
-  color: string;
+  class: string;
   text: string;
   href: string;
 }
 
-const MainButton: React.FC<ButtonProps> = ({ color, text, href }) => {
-  const buttonStyle = { backgroundColor: color };
+
+const Buttons: Record<string, ButtonProps> = {
+  Dashboard: {
+    class: styles.dashboard,
+    text: "DASHBOARD",
+    href: '/dashboard'
+  },
+  Posts: {
+    class: styles.posts,
+    text: "POSTS",
+    href: '/posts'
+  },
+  Wip: {
+    class: styles.wip,
+    text: '***WIP***',
+    href: '/'
+  },
+};
+
+
+const MainButton: React.FC<MainButtonProps> = ({ type }) => {
+  const button = Buttons[type];
 
   return (
-    <Link href={href} className={styles['main-button']}>
-      <div className={styles['main-button-small']} style={buttonStyle} />
-      <div className={styles['main-button-large']} style={buttonStyle}>
-        {text}
+    <Link href={button.href} className={`${styles['main-button']} ${button.class}`}>
+      <div className={styles['main-button-small']}/>
+      <div className={styles['main-button-large']}>
+        {button.text}
       </div>
     </Link>
   );

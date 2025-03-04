@@ -3,7 +3,7 @@
 * lastUpdated: 7/10/2024
 * category: Devlog
 * summary: 1 week of making a robot arm simulation.
-* author: me
+* author: at.svg, Q∀Z, https://hub.nitbit.dev/@qaz
 
 §P
   I want to make a robot arm. What does it take? Inverse kinematics and motors. I figured the best approach was to work with the software part first, and simulate the entire arm before actually making it. That's the topic of this post.

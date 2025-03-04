@@ -4,7 +4,7 @@
 * category: Devlog
 * url: mastodon.svg, hub.nitbit.dev, https://hub.nitbit.dev
 * summary: Hosting Mastodon on a Raspberry Pi with Cloudflare.
-* author: me
+* author: at.svg, Q∀Z, https://hub.nitbit.dev/@qaz
 
 §P
   Join me on

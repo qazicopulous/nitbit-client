@@ -3,9 +3,9 @@
 * lastUpdated: 14/9/2024
 * category: Release
 * url: link.svg, nitbit.dev/fishsticks, https://nitbit.dev/fishsticks
-* url: github.svg, repo, https://github.com/n3cubed/fishsticks
+* url: github.svg, repo, https://github.com/qazicopulous/fishsticks
 * summary: No. 1 physics app (on credit).
-* author: me
+* author: at.svg, Q∀Z, https://hub.nitbit.dev/@qaz
 
 §P
   A 2D physics simulation app that runs in the browser. This app is supposed to be a learning tool. It helps to visualise physics problems dynamically and solve many problems, approximately, by building it in simulation.

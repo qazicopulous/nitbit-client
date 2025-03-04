@@ -1,9 +1,11 @@
+.icon-container {
+  color: inherit;
+}
+
 .display {
-  font-size: var(--font-smallish);
   display: flex;
   flex-direction: row;
   align-items: center;
-  color: var(--primary-color);
   text-decoration: none;
   padding:0;
 }
@@ -24,10 +26,10 @@
 }
 
 .icon {
-  fill: var(--high-contrast);
+  /* fill: var(--high-contrast); */
 }
 
 .display > .icon {
-  filter: contrast(0.4);
+  /* filter: contrast(0.4); */
   margin-right: 0.3em;
 }

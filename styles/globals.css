@@ -1,177 +1,158 @@
 @font-face {
-  font-family: 'Jost';
-	font-weight: 400;
+  font-family: "Jost";
+  font-weight: 400;
   font-stretch: normal;
-	font-style: normal;
-	src: url('../public/assets/fonts/Jost-Variable.ttf') format('truetype');
+  font-style: normal;
+  src: url("../public/assets/fonts/Jost-Variable.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Lora';
+  font-family: "Lora";
   font-stretch: normal;
-	font-style: normal;
-	src: url('../public/assets/fonts/Lora-Regular.ttf') format('truetype');
+  font-style: normal;
+  src: url("../public/assets/fonts/Lora-Regular.ttf") format("truetype");
 }
 @font-face {
-  font-family: 'Merriweather';
+  font-family: "Merriweather";
   font-stretch: normal;
-	font-style: normal;
-	src: url('../public/assets/fonts/Merriweather-Regular.ttf') format('truetype');
+  font-style: normal;
+  src: url("../public/assets/fonts/Merriweather-Regular.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Atkinson Hyperlegible';
+  font-family: "Atkinson Hyperlegible";
   font-stretch: normal;
-	font-style: normal;
-	src: url('../public/assets/fonts/AtkinsonHyperlegible-Regular.ttf') format('truetype');
+  font-style: normal;
+  src: url("../public/assets/fonts/AtkinsonHyperlegible-Regular.ttf")
+    format("truetype");
 }
 
 @font-face {
-	font-family: 'Iosevka-SS14-extended';
-	font-stretch: normal;
-	font-style: normal;
-	src: url('../public/assets/fonts/iosevka-ss14-extended.woff2') format('woff2');
+  font-family: "Iosevka-SS14-extended";
+  font-stretch: normal;
+  font-style: normal;
+  src: url("../public/assets/fonts/iosevka-ss14-extended.woff2") format("woff2");
 }
 
 @font-face {
-	font-family: 'Space Grotesk Semibold';
-	font-stretch: normal;
-	font-style: normal;
-	src: url('../public/assets/fonts/SpaceGrotesk-SemiBold.ttf') format('truetype');
+  font-family: "Space Grotesk Semibold";
+  font-stretch: normal;
+  font-style: normal;
+  src: url("../public/assets/fonts/SpaceGrotesk-SemiBold.ttf")
+    format("truetype");
 }
 
 @font-face {
-	font-family: 'Space Grotesk Medium';
-	font-stretch: normal;
-	font-style: normal;
-	src: url('../public/assets/fonts/SpaceGrotesk-Medium.ttf') format('truetype');
+  font-family: "Space Grotesk Medium";
+  font-stretch: normal;
+  font-style: normal;
+  src: url("../public/assets/fonts/SpaceGrotesk-Medium.ttf") format("truetype");
 }
 
 @font-face {
-	font-family: 'Space Grotesk Light';
-	font-stretch: normal;
-	font-style: normal;
-	src: url('../public/assets/fonts/SpaceGrotesk-Light.ttf') format('truetype');
+  font-family: "Space Grotesk Light";
+  font-stretch: normal;
+  font-style: normal;
+  src: url("../public/assets/fonts/SpaceGrotesk-Light.ttf") format("truetype");
 }
 
 @font-face {
-	font-family: 'Space Grotesk';
-	font-stretch: normal;
-	font-style: normal;
-	src: url('../public/assets/fonts/SpaceGrotesk-Regular.ttf') format('truetype');
+  font-family: "Space Grotesk";
+  font-stretch: normal;
+  font-style: normal;
+  src: url("../public/assets/fonts/SpaceGrotesk-Regular.ttf") format("truetype");
 }
 
 @font-face {
-	font-family: 'Outfit';
-	font-stretch: normal;
-	font-style: normal;
-	src: url('../public/assets/fonts/Outfit-Regular.ttf') format('truetype');
+  font-family: "Outfit";
+  font-stretch: normal;
+  font-style: normal;
+  src: url("../public/assets/fonts/Outfit-Regular.ttf") format("truetype");
 }
 
 @font-face {
-	font-family: 'Iosevka SS07 Web';
-	font-display: swap;
-	font-weight: 400;
-	font-stretch: normal;
-	font-style: normal;
-	src: url('../public/assets/fonts/IosevkaSS07-Regular.woff2') format('woff2');
+  font-family: "Iosevka SS07 Web";
+  font-display: swap;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  src: url("../public/assets/fonts/IosevkaSS07-Regular.woff2") format("woff2");
 }
 
 @font-face {
-	font-family: 'Iosevka SS07 Web Light';
-	font-display: swap;
-	font-stretch: normal;
-	font-style: normal;
-	src: url('../public/assets/fonts/IosevkaSS07-Light.woff2') format('woff2');
+  font-family: "Iosevka SS07 Web Light";
+  font-display: swap;
+  font-stretch: normal;
+  font-style: normal;
+  src: url("../public/assets/fonts/IosevkaSS07-Light.woff2") format("woff2");
 }
 
 @font-face {
-	font-family: 'Lexend Deca';
-	font-stretch: normal;
-	font-style: normal;
-	src: url('../public/assets/fonts/LexendDeca-Regular.ttf') format('truetype');
+  font-family: "Lexend Deca";
+  font-stretch: normal;
+  font-style: normal;
+  src: url("../public/assets/fonts/LexendDeca-Regular.ttf") format("truetype");
 }
-
-
 
 @media only screen and (min-width: 900px) {
   :root {
-    --font-title:34px;
-    --font-extra-large:25px;
-    --font-large:20px;
+    --font-title: 34px;
+    --font-extra-large: 25px;
+    --font-large: 20px;
     --font-default: 18px;
     --font-smallish: 16px;
-    --font-small:14px;
-    --font-extra-small:12px;
+    --font-small: 14px;
+    --font-extra-small: 12px;
 
-    --font-note:15px;
+    --font-note: 15px;
   }
 }
 @media only screen and (max-width: 900px) {
   :root {
-    --font-title:30px;
-    --font-extra-large:24px;
-    --font-large:19px;
+    --font-title: 30px;
+    --font-extra-large: 24px;
+    --font-large: 19px;
     --font-default: 17px;
     --font-smallish: 14px;
-    --font-small:13px;
-    --font-extra-small:11px;
+    --font-small: 13px;
+    --font-extra-small: 11px;
 
-    --font-note:15px;
+    --font-note: 15px;
   }
   #article {
-    padding:20px 10px;
+    padding: 20px 10px;
   }
 }
 
 :root {
-   --light-background-color:white;
-   --dark-background-color:rgb(21, 26, 41);
-
-   --primary-color:rgb(173, 176, 187);
-   --secondary-color:rgb(120, 123, 134);
-   --download-link-background: rgb(159, 90, 216);
-   --link: rgb(153, 124, 231);
-   /* --link: rgb(180, 124, 231); */
-   /* --link-visited: rgb(165, 113, 212); */
-   --link-visited: rgb(170, 138, 77);
-   /* --link-visited: rgb(172, 137, 72); */
-   --contrast: rgb(216, 220, 230);
-   --high-contrast: rgb(239, 243, 255);
-   --very-high-contrast: white;
-
-   --primary-color-dark: rgb(20, 19, 19);
-   --contrast-dark: rgb(40, 41, 44);
-   --high-contrast-dark: black;
-   --link-dark: rgb(28, 35, 102);
-   --code-background-dark: rgb(30, 38, 66);
-   /* --code-background-dark: rgb(30, 34, 66); */
-
-   --more-line-width:0px;
-   --more-line-height:0px;
-   --more-line-animation-name: oscillating-opacity;
+  --more-line-width: 0px;
+  --more-line-height: 0px;
+  --more-line-animation-name: oscillating-opacity;
 }
 
-body,html{
-  min-width:24em;
-  height:100%;
+body,
+html {
+  font-size: var(--font-default);
+  min-width: 24em;
+  height: 100%;
   overflow: visible;
+  background-color: var(--dark-background-color);
 }
 
 body {
-  background-color: var(--dark-background-color);
-  margin:0;
-  margin-top:-1px;
+  margin: 0;
+  margin-top: -1px;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: left;
-  font-family: 'Jost', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Jost", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 * {
-  transition: transform 200ms ease, font-size 100ms ease;
+  transition: transform 200ms ease, font-size 100ms ease,
+    background-color 200ms ease, color 50ms ease;
 }
 
 .toolbar {
@@ -180,11 +161,52 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width:100%;
-  padding-bottom:16px;
+  width: 100%;
+  padding-bottom: 16px;
+  padding-top: 16px;
   bottom: 0;
-  z-index:10;
+  z-index: 10;
+  color: var(--primary-color);
+  /* color: red; */
+  pointer-events: none;
 
-  background: linear-gradient(0deg, rgb(13, 16, 26, 0.7) 0%, rgb(13, 16, 26, 0.2) 60%, rgb(13, 16, 26, 0.1) 75%, transparent);
-  backdrop-filter: blur(0.2px);
+  background: linear-gradient(
+    0deg,
+    color-mix(in srgb, var(--dark-background-color) 30%, transparent) 0%,
+    color-mix(in srgb, var(--dark-background-color) 10%, transparent) 50%,
+    transparent
+  );
+  backdrop-filter: blur(0.5px);
+}
+.toolbar * {
+  pointer-events: all;
+}
+.toolbar svg {
+  filter: drop-shadow(1px 1px 3px var(--dark-background-color));
+}
+
+/* width */
+body::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+  padding-top: 10px;
+}
+
+/* Track */
+body::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 3px;
+  padding-top: 10px;
+}
+
+/* Handle */
+body::-webkit-scrollbar-thumb {
+  padding-top: 10px;
+  background: var(--contrast);
+  border-radius: 3px;
+}
+
+/* Handle on hover */
+body::-webkit-scrollbar-thumb:hover {
+  background: var(--high-contrast);
 }

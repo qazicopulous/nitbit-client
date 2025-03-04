@@ -1,9 +1,9 @@
 .upper-home {
   z-index:8;
   /* box-shadow: 0 10px 1px rgb(7, 9, 15), 0px 20px 1px rgb(13, 16, 26), 0px 30px 1px rgb(18, 22, 36); */
-  box-shadow: 0 10px 1px rgb(7, 9, 15, 0.5), 0px 20px 1px rgb(7, 9, 15, 0.4), 0px 30px 1px rgb(7, 9, 15, 0.3);
+  /* box-shadow: 0 10px 1px rgb(7, 9, 15, 0.5), 0px 20px 1px rgb(7, 9, 15, 0.4), 0px 30px 1px rgb(7, 9, 15, 0.3); */
 
-  background-color: var(--very-high-contrast);
+  background-color: var(--light-background-color);
   position:relative;
   padding: min(5vh, 50px) 0;
   /* padding-bottom:80px; */
@@ -30,6 +30,7 @@
 
 .expand-posts {
   /* transition: visibility 0.9s linear 0.9s, opacity 0.4s ease-out 0.8s, transform 1s ease-out; */
+  color: var(--high-contrast);
   transition: visibility 0.1s linear 0.9s, opacity 0.4s ease-out 0.8s, transform 0.9s cubic-bezier(1,0,1,.63);
   cursor: pointer;
   transform: rotateZ(-45deg)
@@ -39,4 +40,10 @@
   visibility: none;
   opacity:0;
   transform: translateY(-84px) rotateZ(-45deg)
+}
+
+/* themes */
+
+.halloween {
+  filter: 'hue-rotate(290deg) sepia(10%) saturate(200%)'
 }

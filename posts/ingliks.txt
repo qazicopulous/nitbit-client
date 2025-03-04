@@ -3,9 +3,9 @@
 * lastUpdated: 3/10/2024
 * category: Release
 * url: link.svg, iŋgliks translator, https://nitbit.dev/ingliks
-* url: github.svg, repo, https://github.com/n3cubed/ingliks
+* url: github.svg, repo, https://github.com/qazicopulous/ingliks
 * summary: A so called "language" designed specifically for making English spelling better. (American iŋgliks mostly not supported. Cry about it)
-* author: AliNevada34
+* author: at.svg, AliNevada34, https://www.youtube.com/@alinevada34
 
 §P
   Iŋgliks is a "language" designed to make english spelling and reading better, aswell as making reading other language scripts relatively easier aswell. (Though it may be a bit cursed).

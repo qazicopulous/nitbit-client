@@ -3,9 +3,11 @@ import { posts, parsedPosts } from '@/components/Post/parsedPosts'
 import Post from '@/components/Post/Post'
 
 export async function generateStaticParams() {
-  return posts.map( async (postname) => ({
-    slug: postname
-  }));
+  return await Promise.all(
+    posts.map(async (postname) => ({
+      slug: postname
+    }))
+  );
 }
 
 const PostPage: React.FC<{ params: Promise<{ slug: string }>}> = async ({ params }) => {
@@ -17,10 +19,8 @@ const PostPage: React.FC<{ params: Promise<{ slug: string }>}> = async ({ params
     repoLink = repoLink?.href;
   }
 
-  let postComponent = post.generateComponent();
-
   return (
-    <Post post={postComponent} repoLink={repoLink}></Post>
+    <Post post={post.component} repoLink={repoLink}></Post>
   );
 }
 

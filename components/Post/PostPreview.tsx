@@ -29,7 +29,7 @@ const PostPreview: React.FC<{ post: Section }> = ({post}) => {
       </div>
       <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap'}}>
         {(urls as IconProps[]).map((url, index) => (
-          <span key={index} style={{display: 'inline-block', marginRight: '10px'}}>
+          <span key={index} className={styles.hyperlink}>
             <Icon name={url.name} alt={url.alt} href={url.href} doDisplayAlt={true} width={16}></Icon>
           </span>
         ))}

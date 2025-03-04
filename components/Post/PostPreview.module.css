@@ -17,18 +17,28 @@
   color: var(--high-contrast);
 }
 
+
 .post-preview-title {
   text-decoration: none;
   font-size: var(--font-extra-large);
   color: var(--high-contrast);
   font-family: 'Lora', sans-serif;
-  transition: color 200ms, text-decoration-color 80ms ease, text-underline-offset 100ms ease;
+  transition: text-decoration-color 80ms ease, text-underline-offset 100ms ease;
   text-underline-offset: 0;
   text-decoration-color:transparent;
 }
 
 .post-preview-date {
   font-size: var(--font-smallish);
+  color: var(--primary-color);
+}
+
+.hyperlink {
+  color: var(--primary-color);
+  margin-right: 10px;
+}
+
+.pitch-black .hyperlink {
   color: var(--primary-color);
 }
 

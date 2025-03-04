@@ -3,10 +3,18 @@ import { parseRawPost } from './postParser';
 // export const posts = ['nitbit', 'fishsticks', 'sample1', 'sample2', 'sample3', 'sample4', 'sample5', 'sample6', 'sample7', 'sample8', 'sample9', 'sample10', ]
 export const posts = ['nitbit', 'fishsticks', 'ingliks', 'nitbit_devlog_1', 'robot_arm_devlog_1', 'mastodon_devlog_1', 'font_awesome']
 
-export const parsedPosts = posts.map((postname) => {
-  const rawContent = require(`@/posts/${postname}.txt`).default;
-  return parseRawPost(rawContent);
-})
+export let parsedPosts: any[] = [];
+if (parsedPosts.length == 0) {
+  console.log(
+    "0"
+  )
+  parsedPosts = posts.map((postname) => {
+    const rawContent = require(`@/posts/${postname}.txt`).default;
+    return parseRawPost(rawContent);
+  })
+}
+
+
 
 
 // import fs from 'fs';

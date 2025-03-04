@@ -10,7 +10,7 @@
 
 .path > a {
   color: var(--primary-color);
-  text-shadow: 1px 1px 3px var(--dark-background-color);
+  text-shadow: 1px 1px 2px var(--dark-background-color);
   text-decoration: none;
   font-family: 'Atkinson Hyperlegible', sans-serif;
   transition: color 200ms, text-decoration-color 300ms ease, text-underline-offset 100ms ease;
@@ -18,11 +18,12 @@
 }
 
 .path > a:hover {
-  color: var(--contrast) !important;
+  color: var(--contrast);
   text-decoration: underline 2px;
   text-underline-offset: 2px;
 }
 
 .divider {
   margin: 0 2px;
+  text-shadow: 0px 0px 2px var(--dark-background-color);
 }

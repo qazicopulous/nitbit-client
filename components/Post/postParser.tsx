@@ -5,16 +5,17 @@ import { timeAgo } from '@/utils/time';
 import Image from 'next/image';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
-
+import Icon from '../Icon/Icon'
+import sanitizeHtml from 'sanitize-html';
 
 let postNameLabel: string;
-let repoLink: string = "https://github.com/n3cubed", setRepoLink: any;
+let repoLink: string = "https://github.com/qazicopulous", setRepoLink: any;
+
 
 export class Section {
   tag: Tag;
   content: Array<string | Section>;
   properties: { [key: string]: any };
-
 
   constructor(
     tag: Tag,
@@ -40,7 +41,8 @@ export class Section {
           {this.content.map((item, index) => {
             function parseItem(item: string | Section) {
               if (typeof item === "string") {
-                return <span style={{ whiteSpace: 'pre-wrap' }}>{item}</span>;
+                const str = item.toString();
+                return <span style={{ whiteSpace: 'pre-wrap' }}>{str}</span>;
               }
               else return item.generateComponent();
             }
@@ -60,9 +62,9 @@ export class Section {
           postName,
           category,
           lastUpdated,
-          links,
           summary,
-          author,
+          authors,
+          urls,
         } = this.properties;
         console.log(`==> compiling ${postName}`)
         postNameLabel = postName
@@ -78,7 +80,13 @@ export class Section {
                     {lastUpdated}
                   </div>
                 </div>
-                <div className={styles["author"]}>{author}</div>
+                <div className={styles["header-links"]}>
+                  {(authors as IconProps[])?.map((author, index) => (
+                    <span key={index} className={styles["header-link"]}>
+                      <Icon name={author.name} alt={author.alt} href={author.href} doDisplayAlt={true} width={16}></Icon>
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
             {buildChildren()}
@@ -122,7 +130,7 @@ export class Section {
       case Tag.InlineImage:
         return (
           <>
-            &nbsp;
+            {' '}
             <span className={`${styles['inline-image']} ${this.properties.large ? styles['large'] : ''}`}>
               <Image
                 src={`/assets/media/posts/${postNameLabel}/${this.properties.name}`}
@@ -147,7 +155,7 @@ export class Section {
             <Image
               src={`/assets/media/posts/${postNameLabel}/${this.properties.name}`}
               alt={this.properties.caption ? this.properties.caption : this.properties.alt}
-              style={{ maxWidth: this.properties.width + "px", height: 'auto', transform: "translate3d(0, 0, 0)" }}
+              style={{ maxWidth: this.properties.width + "px", height: "auto", transform: "translate3d(0, 0, 0)" }}
               placeholder="blur"
               blurDataURL={`/assets/media/posts/${postNameLabel}/${this.properties.name}`}
               width={this.properties.width}
@@ -158,7 +166,6 @@ export class Section {
               {this.properties.caption}
               {this.properties.source &&
                 <>
-                  &nbsp;
                   <Link className={styles.hyperlink} href={this.properties.source}>
                     Source.
                   </Link>
@@ -171,15 +178,15 @@ export class Section {
       case Tag.Video:
         return (
           <div className={styles.video}>
-            <video controls>
-              <source src={`/assets/media/posts/${postNameLabel}/${this.properties.name}`}/>
+            <video controls preload='metadata'>
+              <source src={`/assets/media/posts/${postNameLabel}/${this.properties.name}#t=0.1`}/>
               Your browser cannot show this video.
             </video>
             <div className={styles.caption}>
               {this.properties.caption}
               {this.properties.source &&
                 <>
-                  &nbsp;
+                  {' '}
                   <Link className={styles.hyperlink} href={this.properties.source}>
                     Source.
                   </Link>
@@ -203,7 +210,7 @@ export class Section {
               {this.properties.caption}
               {this.properties.source &&
                 <>
-                  &nbsp;
+                  {' '}
                   <Link className={styles.hyperlink} href={this.properties.source}>
                     Source.
                   </Link>
@@ -218,7 +225,7 @@ export class Section {
         const url = this.properties.urls[0];
         return (
           <>
-            &nbsp;
+            {' '}
             <Link className={styles.hyperlink} href={this.properties.urls[0].href}>
               { url.alt ? url.alt : url.href }{buildChildren()}
             </Link>
@@ -344,7 +351,19 @@ function parseString(input: string): Array<string | Section> {
   return result;
 }
 
-export function parseRawPost(input: string): Section {
+export class Post {
+  component: React.ReactNode;
+  properties: { [key: string]: any };
+
+  constructor(
+    section: Section
+  ) {
+    this.component = section.generateComponent();
+    this.properties = section.properties;
+  }
+}
+
+export function parseRawPost(input: string): Post {
   const result = new Section(Tag.Body, [], {});
 
   const tagRegex = /^§(.*)/;
@@ -364,15 +383,15 @@ export function parseRawPost(input: string): Section {
       const match = trimmedLine.match(propsRegex);
       if (match) {
         const [_, key, value] = match;
-        if (key === "url") {
+        if (key === "url" || key === "author") {
           const urlProps = value.split(", ");
           const url: IconProps = {
             name: urlProps[0],
             alt: urlProps[1],
             href: urlProps[2],
           };
-          currentSection.properties["urls"] = (
-            currentSection.properties["urls"] || []
+          currentSection.properties[`${key}s`] = (
+            currentSection.properties[`${key}s`] || []
           ).concat(url);
         } else currentSection.properties[key] = value;
       }
@@ -432,5 +451,5 @@ export function parseRawPost(input: string): Section {
     }
   }
   // console.dir(result)
-  return result;
+  return new Post(result);
 }

@@ -3,9 +3,9 @@
 * lastUpdated: 15/9/2024
 * category: Release
 * url: link.svg, nitbit.dev, https://nitbit.dev
-* url: github.svg, repo, https://github.com/n3cubed/nitbit
+* url: github.svg, repo, https://github.com/qazicopulous/nitbit
 * summary: Personal website to showcase stuff.
-* author: me
+* author: at.svg, Q∀Z, https://hub.nitbit.dev/@qaz
 
 §P
   w e b s i te

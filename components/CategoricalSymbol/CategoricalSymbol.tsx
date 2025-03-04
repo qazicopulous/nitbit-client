@@ -8,21 +8,21 @@ interface CategoricalSymbolProps {
 }
 
 interface Category {
-  color: string;
+  class: string;
   symbol: string;
 }
 
 const Categories: Record<string, Category> = {
   Release: {
-    color: '#ff5254',
+    class: styles.release,
     symbol: 'R',
   },
   Devlog: {
-    color: '#db8ae6',
+    class: styles.devlog,
     symbol: 'D',
   },
   Notes: {
-    color: '#dcdfda',
+    class: styles.notes,
     symbol: 'N',
   },
 };
@@ -30,8 +30,7 @@ const Categories: Record<string, Category> = {
 const CategoricalSymbol: React.FC<CategoricalSymbolProps> = ({ for: category, small, dark, onClick }) => {
   return (
     <div
-      className={`${styles["categorical-symbol"]} ${small ? styles.small : ''} ${ dark ? styles.dark : ''}`}
-      style={{ backgroundColor: Categories[category].color }}
+      className={`${styles["categorical-symbol"]} ${small ? styles.small : ''} ${ dark ? styles.dark : ''} ${Categories[category].class}`}
       onClick={ onClick }
     >
       {small ? "" : Categories[category].symbol}

@@ -31,3 +31,15 @@
 .categorical-symbol:active {
   transform: translateY(2px);
 }
+
+.notes {
+  background-color: var(--notes-color)
+}
+
+.devlog {
+  background-color: var(--devlog-color)
+}
+
+.release {
+  background-color: var(--release-color)
+}

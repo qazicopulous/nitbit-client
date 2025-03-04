@@ -41,11 +41,11 @@ export const useAdditionalPosts = () => {
   [additionalPosts, setAdditionalPosts] = useState(0);
 };
 
-let repoLink: string = "https://github.com/n3cubed", setRepoLink: any;
+let repoLink: string = "https://github.com/qazicopulous", setRepoLink: any;
 export const getRepoLink = () => {
   return { repoLink, setRepoLink };
 };
 
 export const useRepoLink = () => {
-  [repoLink, setRepoLink] = useState("https://github.com/n3cubed");
+  [repoLink, setRepoLink] = useState("https://github.com/qazicopulous");
 };
