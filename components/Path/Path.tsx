@@ -6,7 +6,7 @@ import styles from './Path.module.css'
 import React from 'react';
 
 const Path: React.FC = () => {
-  const pathname = usePathname();
+  const pathname = usePathname() || '';
   const routes = pathname.split('/').filter((route)=> route === '' ? null : route);
 
   return (

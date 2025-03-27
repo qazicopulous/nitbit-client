@@ -1,7 +1,0 @@
-* title: Sample 4
-* postName: sample4
-* lastUpdated: 13/9/2024
-* category: Notes
-* summary: Sample 4.
-* author: me
-*

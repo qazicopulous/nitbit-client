@@ -1,0 +1,230 @@
+
+.brick, .core {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+}
+
+.brick {
+  box-sizing: border-box;
+  visibility: hidden;
+  transition: transform 33ms linear;
+
+  padding: 16px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+
+  font-family: Berkeley Mono;
+
+  background-color: var(--high-contrast);
+  box-shadow: 2px 2px 10px 0px #0000006b;
+  /* color: #97a7b8; */
+}
+
+.brick *:not(a) {
+  pointer-events: none;
+}
+
+.core {
+  cursor: pointer;
+  visibility: hidden;
+  white-space: nowrap;
+
+  transition: transform 33ms linear;
+  /* transition: none; */
+
+  padding: 10px;
+  border: 2px solid #000035;
+
+  font-family: Berkeley Mono;
+  font-weight: bold;
+  font-size: 3em !important;
+
+  /* background-color: var(--high-contrast); */
+  /* background-color: rgb(79, 219, 79); */
+  box-shadow: 2px 2px 10px 0px #0000006b;
+}
+
+@keyframes shrink-then-disappear {
+  0% {
+    font-size: 5em;
+    display: block;
+  }
+  100% {
+    display: none;
+    font-size: 1em;
+  }
+}
+
+.failed {
+  filter: brightness(0.4) grayscale(1) !important;
+}
+
+.enlarged-name {
+  padding: 0.1em 0.2em;
+  background-color: inherit;
+  font-size: 5em;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  position:absolute;
+}
+
+.open .enlarged-name {
+  animation: shrink-then-disappear 500ms ease forwards;
+}
+
+.raise {
+  z-index: 100;
+}
+
+.title {
+  font-size: 1.1em;
+  transition: text-decoration-color 80ms ease, text-underline-offset 100ms ease;
+  text-underline-offset: 0;
+  text-decoration-color:transparent;
+  color: var(--high-contrast-dark);
+}
+
+.title:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.author {
+  font-size: 0.8em;
+  font-style: italic;
+  color: var(--secondary-color);
+}
+
+.date {
+  font-size: 0.8em;
+  color: #888;
+}
+
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 350px;
+  overflow: hidden;
+  max-width: 100%;
+  margin: 8px 0;
+  border-radius: 4px;
+}
+
+.embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+
+.description-container {
+  color: var(--contrast-dark);
+  display: -webkit-box;
+  -webkit-line-clamp: 15;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.readmore {
+  display: inline-block;
+  margin-top: 8px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.readmore:hover {
+  text-decoration: underline;
+}
+
+.image {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  margin: 8px 0;
+  border-radius: 4px;
+}
+
+.widget-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.widget {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+  font-size: 18px;
+  overflow-y: auto;
+  width: min(400px, 70%);
+  top: 0;
+  right: 0;
+  padding: 20px;
+  height: 100%;
+  transform: translateX(0);
+  transition: transform 200ms ease;
+  box-shadow: 0px 0px 10px #0000006b;
+  word-wrap: break-word;
+  font-family: 'Jost';
+  background-color: var(--high-contrast);
+}
+
+.close {
+  visibility: hidden;
+}
+
+.close .widget{
+  transform: translateX(100%);
+}
+
+.content {
+  display: flex !important;
+  flex-direction: column;
+  gap: 0.2em;
+  height:max-content;
+  max-width: 100%;
+}
+
+.content * {
+  max-width: 100%;
+}
+
+.content a, .description-container a {
+  font-weight: var(--link-weight);
+  color: var(--link);
+  text-decoration: none;
+  position:relative;
+  text-underline-offset: 0;
+  transition: color 200ms 50ms, text-decoration-color 350ms ease, text-underline-offset 200ms ease-out 50ms;
+  text-decoration: underline 2px transparent;
+}
+
+.content a:hover, .content a:visited:hover, .description-container a:hover, .description-container a:visited:hover {
+  text-decoration-color: var(--contrast-dark);
+  color: var(--high-contrast-dark);
+  text-underline-offset: 3px;
+}
+
+.hyperlink:visited {
+  color: var(--link-visited);
+}
+
+.seen {
+  background-color: var(--contrast);
+  filter: blur(0.8px) brightness(0.7) grayscale(1);
+}
+
+.unseen-button {
+  background:none;
+  border: none;
+  color: var(--secondary-color);
+  font-size: 0.9em;
+  cursor: pointer;
+}

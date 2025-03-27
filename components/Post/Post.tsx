@@ -3,17 +3,16 @@
 import sanitizeHtml from 'sanitize-html';
 import styles from './Post.module.css'
 import hljs from 'highlight.js/lib/common';
-import { useTheme } from '@/components/ThemeProvider';
+import { useTheme, useRepoLink } from '@/components/ContextProvider';
 import { Theme } from '@/components/ThemeChooser/ThemeChooser';
 import { useEffect, useState } from "react";
-import { getRepoLink } from '@/utils/states'
 import Head from 'next/head';
 
 const Post: React.FC<{ post: React.ReactNode, repoLink: string }> = ({ post, repoLink }) => {
 	// const postComponent = post;
 	const { theme } = useTheme();
-	const [ updateState, setUpdateState ] = useState({});
-	const [themePath, setThemePath] = useState('');
+	// const [themePath, setThemePath] = useState('');
+	const { setRepoLink } = useRepoLink();
 
 	useEffect(() => {
 		document.querySelectorAll('pre code:not(.hljs)').forEach((block) => {
@@ -54,15 +53,15 @@ const Post: React.FC<{ post: React.ReactNode, repoLink: string }> = ({ post, rep
   }, [theme]);
 
 	useEffect(()=>{
-		const { repoLink: repoLinkState, setRepoLink } = getRepoLink();
 		if (repoLink) {
 			setRepoLink(repoLink);
-			setUpdateState({});
-			// console.log(repoLink)
 		} else {
 			setRepoLink("https://github.com/qazicopulous");
 		}
-	}, [repoLink]);
+		return () => {
+			setRepoLink("https://github.com/qazicopulous");
+		}
+	}, [repoLink, setRepoLink]);
 
 	return (
 		<>

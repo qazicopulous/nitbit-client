@@ -3,11 +3,11 @@ import styles from './PostPreview.module.css'
 import { IconProps } from '../Icon/Icon'
 import Link from 'next/link'
 import CategoricalSymbol from '../CategoricalSymbol/CategoricalSymbol'
-import { Section } from './postParser'
+import { Post } from '@/utils/postParser'
 import { timeAgo } from '@/utils/time'
 
-const PostPreview: React.FC<{ post: Section }> = ({post}) => {
-  let { postName, title, category, lastUpdated, summary, urls } = post.properties;
+const PostPreview: React.FC<{ properties: { [ item: string ]: any } }> = ({properties}) => {
+  let { postName, title, category, lastUpdated, summary, urls } = properties;
   urls = urls ? urls : []
   return (
     <div className={styles['post-preview']}>

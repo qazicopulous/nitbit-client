@@ -1,6 +1,5 @@
 'use client'
-import { useFilterBy, useAdditionalPosts, useRepoLink, getRepoLink } from '@/utils/states'
-import { Section } from '@/components/Post/postParser'
+import { useRepoLink } from '@/components/ContextProvider'
 import Path from '@/components/Path/Path'
 import Icon from '@/components/Icon/Icon'
 import ThemeChooser, { Theme } from '@/components/ThemeChooser/ThemeChooser';
@@ -10,10 +9,7 @@ export default function PostsLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  useFilterBy();
-  useAdditionalPosts();
-  useRepoLink();
-  const { repoLink, setRepoLink } = getRepoLink();
+  const { repoLink } = useRepoLink();
 
   return (
     <>

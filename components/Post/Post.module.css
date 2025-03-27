@@ -1,7 +1,7 @@
 @media only screen and (min-width: 900px) {
   .article {
     margin: 0 auto;
-    width: min(75%, 900px);
+    width: min(90%, 900px);
     text-align: center;
   }
   .last-updated-date{
@@ -12,13 +12,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 3em 0 2em 0;
   }
   .article-title {
     animation: 400ms ease 0ms 1 slide-down-1;
   }
   .details{
     animation: 400ms ease 0ms 1 slide-down-2;
-    justify-content: flex-end;
+    gap: 0.5em;
   }
   .header-link {
     margin-left: 7px;
@@ -28,28 +29,29 @@
     text-align-last: center;
   }
   .o-list, .u-list {
-    /* width: min(60%, 650px); */
-    width: fit-content;
     margin: 0 auto;
+    width: fit-content;
+    max-width: 600px;
   }
-
-
 }
 
 @media only screen and (max-width: 900px) {
   .article {
-    padding:10px 5%;
+    padding:10px 4%;
   }
   .last-updated-date{
     right: 0;
   }
   .article-header {
-    margin: 1em 0 2em 0 !important;
+    margin: 1em 0 2em 0;
     gap: 1em;
-    animation: 400ms ease 0ms 1 slide-down-1;
     flex-direction: column-reverse;
   }
+  .article-title {
+    animation: 400ms ease 0ms 1 slide-down-3;
+  }
   .details {
+    animation: 400ms ease 30ms 1 slide-down-3;
     flex-direction: row-reverse;
     justify-content: space-between;
   }
@@ -58,17 +60,48 @@
   }
 }
 
+.o-list > *:not(li), .u-list > *:not(li){
+  /* cancel ol,ul offset */
+  margin-right: 0;
+  /* justify-self: center; */
+  align-self: center;
+  margin-left: -40px;
+}
+
 .o-list, .u-list {
+  /* width: min(60%, 650px); */
+  /* width: min(50%, 10%); */
+  display: flex;
+  flex-direction: column;
+  position:relative;
   line-break: normal;
 }
 
-
-
 .sub-header {
-  margin-top: 1.6em;
+  backdrop-filter: blur(1px);
+  top: 0;
+  z-index: 10;
+  position: sticky;
+  margin-top: 2em;
+  padding-bottom: 0.2em;
+  margin-bottom: 0;
   text-align: center;
   font-family: 'Lexend Deca';
   font-weight: 300;
+  /* background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--dark-background-color) 30%, transparent) 0%,
+    color-mix(in srgb, var(--dark-background-color) 15%, transparent) 50%,
+    color-mix(in srgb, var(--dark-background-color) 5%, transparent)
+  ); */
+  text-shadow: 1px 1px 2px var(--dark-background-color);
+  /* glass */
+  /* background: linear-gradient(180deg, color-mix(in srgb, var(--dark-background-color) 70%, transparent) 0%, color-mix(in srgb, var(--dark-background-color) 20%, transparent) 50%, transparent); */
+  /* backdrop-filter: blur(1px); */
+  /* border-radius: 3px; */
+  background-clip: padding-box;
+  border-bottom: 1px solid color-mix(in srgb, var(--dark-background-color) 5%, transparent);
+
 }
 
 .li {
@@ -83,7 +116,7 @@
 .article {
   font-size: var(--font-default);
   font-family: "Jost";
-  background-color: var(--background-color);
+  background-color: var(--dark-background-color);
   color:var(--primary-color);
   /* overflow-y:; */
   /* overflow-x:hidden; */
@@ -101,7 +134,6 @@
 
 .article-header {
   display: flex;
-  margin: 30px 0;
 }
 
 .article-title {
@@ -223,6 +255,7 @@
 }
 
 .image, .video, .video-ext {
+  width: min(2000px, 100%);
   margin: 20px 0;
   display: flex;
   flex-direction: column;
@@ -245,14 +278,13 @@
 
 .image > img {
   border-radius: 6px;
-  width: min(2000px, 100%);
   height: auto;
   /* border: 1px dashed white; */
   display: block;
 }
 
 .distinct {
-  word-break:break-all;
+  word-wrap: break-word;
   user-select: all;
   font-family: "Atkinson Hyperlegible";
   color:var(--contrast);
@@ -266,7 +298,9 @@
   position:relative;
   max-width: max-content;
   text-align:left;
-  margin: auto;
+  margin: 0 auto;
+  background: transparent;
+
 }
 
 .code-container.wide {
@@ -275,11 +309,12 @@
 
 .code {
   font-family: "Iosevka SS07 Web Light";
-  font-size:var(--font-default);
+  font-size:var(--font-smallish);
   border-radius:3px;
   overflow-x: auto;
   padding: 12px 8px;
   max-width:100%;
+  background: var(--code-background-dark);
 }
 
 .code > code {
@@ -325,7 +360,9 @@
 
 .code-background.wide {
   padding:0;
+  margin:0;
   width: calc(100% + 3em);
+  max-width: calc(100vw - 8px); /* subtract the width of the scrollbar*/
   min-width: 100%;
 }
 
@@ -414,8 +451,8 @@
 }
 
 .group {
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 .hyperlink {
@@ -487,10 +524,21 @@
 
 @keyframes slide-down-1 {
   0% {
-    transform: translateY(-70px);
+    transform: translateY(-100px);
   }
   10% {
-    transform: translateY(-70px);
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes slide-down-3 {
+  0% {
+    transform: translateY(-100px);
+  }
+  10% {
+    transform: translateY(-100px);
   }
   100% {
     transform: translateY(0);

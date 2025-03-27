@@ -15,8 +15,8 @@ interface ButtonProps {
 const Buttons: Record<string, ButtonProps> = {
   Dashboard: {
     class: styles.dashboard,
-    text: "DASHBOARD",
-    href: '/dashboard'
+    text: "ZOOPBOARD",
+    href: '/zoopboard'
   },
   Posts: {
     class: styles.posts,
@@ -26,7 +26,7 @@ const Buttons: Record<string, ButtonProps> = {
   Wip: {
     class: styles.wip,
     text: '***WIP***',
-    href: '/'
+    href: '/files'
   },
 };
 

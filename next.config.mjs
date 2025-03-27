@@ -1,12 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // output: 'export',
-  // output: "standalone",
+  output: "standalone",
   // distDir: '../out',
   // images: {
   //   unoptimized: true
   // },
-  reactStrictMode: true,
+  reactStrictMode: false,
+  crossOrigin: 'anonymous',
   webpack(config) {
     // config.resolve = {
     //   ...config.resolve,

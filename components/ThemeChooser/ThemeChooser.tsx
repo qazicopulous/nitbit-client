@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '@/styles/themes.css';
 import Cookies from 'js-cookie';
-import { useTheme } from '@/components/ThemeProvider';
+import { useTheme } from '@/components/ContextProvider';
 import Icon from '@/components/Icon/Icon';
 import styles from './ThemeChooser.module.css';
 import sanitizeHtml from 'sanitize-html';

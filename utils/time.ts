@@ -1,8 +1,12 @@
 
 export function timeAgo(dateString: string): string {
     const inputDate = toDate(dateString)
+    return timeAgoDate(inputDate);
+}
+
+export function timeAgoDate(date: Date): string {
     const now = new Date();
-    const diffInMs = now.getTime() - inputDate.getTime();
+    const diffInMs = now.getTime() - date.getTime();
 
     const seconds = Math.floor(diffInMs / 1000);
     const minutes = Math.floor(seconds / 60);
@@ -21,8 +25,10 @@ export function timeAgo(dateString: string): string {
         return `${hours} hour${hours > 1 ? 's' : ''} ago`;
     } else if (minutes > 0) {
         return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
-    } else {
+    } else if (seconds > 0) {
         return `${seconds} second${seconds > 1 ? 's' : ''} ago`;
+    } else {
+        return "No date provided"
     }
 }
 

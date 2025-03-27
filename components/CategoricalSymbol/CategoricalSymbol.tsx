@@ -33,7 +33,6 @@ const CategoricalSymbol: React.FC<CategoricalSymbolProps> = ({ for: category, sm
       className={`${styles["categorical-symbol"]} ${small ? styles.small : ''} ${ dark ? styles.dark : ''} ${Categories[category].class}`}
       onClick={ onClick }
     >
-      {small ? "" : Categories[category].symbol}
     </div>
   );
 

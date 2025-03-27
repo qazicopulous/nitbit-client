@@ -1,4 +1,12 @@
 @font-face {
+  font-family: "Berkeley Mono";
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  src: url("../public/assets/fonts/BerkeleyMono-Regular.woff2") format("woff2");
+}
+
+@font-face {
   font-family: "Jost";
   font-weight: 400;
   font-stretch: normal;
@@ -96,26 +104,26 @@
 
 @media only screen and (min-width: 900px) {
   :root {
-    --font-title: 34px;
-    --font-extra-large: 25px;
-    --font-large: 20px;
-    --font-default: 18px;
-    --font-smallish: 16px;
-    --font-small: 14px;
-    --font-extra-small: 12px;
+    --font-title: 36px;
+    --font-extra-large: 27px;
+    --font-large: 22px;
+    --font-default: 19px;
+    --font-smallish: 17px;
+    --font-small: 16px;
+    --font-extra-small: 14px;
 
-    --font-note: 15px;
+    --font-note: 16px;
   }
 }
 @media only screen and (max-width: 900px) {
   :root {
-    --font-title: 30px;
+    --font-title: 31px;
     --font-extra-large: 24px;
     --font-large: 19px;
     --font-default: 17px;
-    --font-smallish: 14px;
-    --font-small: 13px;
-    --font-extra-small: 11px;
+    --font-smallish: 15px;
+    --font-small: 14px;
+    --font-extra-small: 12px;
 
     --font-note: 15px;
   }
@@ -210,3 +218,7 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-thumb:hover {
   background: var(--high-contrast);
 }
+
+/* * {
+  outline: 1px solid #f00 !important;
+} */

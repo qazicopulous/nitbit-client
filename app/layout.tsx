@@ -4,7 +4,7 @@ import "../styles/globals.css";
 import { cookies } from "next/headers";
 import ThemeChooser, { Theme } from "@/components/ThemeChooser/ThemeChooser";
 import  "@/styles/themes.css";
-import { ThemeProvider } from "@/components/ThemeProvider";
+import { ContextProvider } from "@/components/ContextProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,9 +23,9 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} ${theme}`}>
-        <ThemeProvider initialTheme={theme}>
+        <ContextProvider initialTheme={theme}>
           {children}
-        </ThemeProvider>
+        </ContextProvider>
       </body>
     </html>
   );
